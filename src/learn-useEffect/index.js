@@ -1,9 +1,14 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect,useRef} from "react";
 import "./index.css";
 
 export default function Index(){
     const [count, setCount] = useState(0);
     const [data, setData] = useState([]);
+
+    const inputRef = useRef()
+    const [greetings, setGreetings] = useState(false);
+    const [wrongInput, setWrongInput] = useState(false);
+    const [nama, setNama] = useState();
     
     //dijalankan 1 kali
     useEffect(() =>{
@@ -38,10 +43,51 @@ export default function Index(){
         setCount(count -1);
     };
 
+    const showGreetings = () => {
+        setGreetings(true);
+    }
+
+    const hideGreetings = () => {
+        setGreetings(false);
+    }
+
+    const showWrongInput = () => {
+        setWrongInput(true);
+    }
+
+    const hideWrongInput = () => {
+        setWrongInput(false);
+    }
+
+    const inputName = () => {
+        setNama(inputRef.current.value);
+    }
+
+    function containsNumbers(nama) {
+        return /\d/.test(nama);
+    }
+
+    useEffect(() => {
+        if (nama === "" || nama === null || nama === undefined) {
+            hideGreetings();
+            hideWrongInput();
+        }
+        else if (containsNumbers(nama)) {
+            hideGreetings();
+            showWrongInput();
+        } else {
+            showGreetings();
+            hideWrongInput();
+        }
+    }, [nama]);
+
     return(
         <div className="Main">
-            <p className="Text"> Learn useEffect</p>
-            <p>KELOMPOK03</p>
+            <p style={{ display: greetings === true ? "flex" : "none" }}>Selamat datang, {nama}, di tugas kelompok kami.</p>
+            <p className="Text">Learn useEffect</p>
+            <input ref={inputRef} placeholder="Masukkan Nama Anda" className="namaPengguna" onChange={inputName}/>
+            <p style={{ display: wrongInput === true ? "flex" : "none" }}>Yang Anda masukkan bukan nama.</p>
+            <p>KELOMPOK 03</p>
             <ul>
                 {data.slice(0,10).map((value) => (
                     <li key={value.id}>{value.title}</li>
