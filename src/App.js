@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Counter from "./learn-useState/Counter";
 import Effect from "./learn-useEffect/index";
 import Context from "./learn-useContext/index";
+// import Tugas from "./tugas/tugas";
 function App() {
   return (
     <Router>
@@ -22,12 +23,16 @@ function App() {
             <li className="li">
               <Link to="/context">Use Context</Link>
             </li>
+            <li className="li">
+              <Link to="/tugas">Use Gatau</Link>
+            </li>
           </ul>
         </nav>
         <Routes>
           <Route path="/" exact element={<Counter />} />
           <Route path="/effect" exact element={<Effect />} />
           <Route path="/context" exact element={<Context />} />
+          {/* <Route path="/tugas" exact element={<Tugas />} /> */}
         </Routes>
       </div>
     </Router>
