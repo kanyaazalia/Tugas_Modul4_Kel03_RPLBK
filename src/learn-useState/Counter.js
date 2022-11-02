@@ -23,7 +23,7 @@ export default function Counter(){
 
 return (
     <div className="Main">
-        <p className="Text">Counter with useState</p>
+        <p className="Text">Learn with useState</p>
         <p>KELOMPOK 03</p>
        
         <h3 style={{//{}ini tandanya objek
