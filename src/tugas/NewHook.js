@@ -3,29 +3,29 @@ import React from "react";
 function NewHook() {
   const [state, setState] = React.useState({
     nama: "",
-    nim: "",
-    kelompok: "",
+    umur: "",
+    angkatan: "",
   });
   const namaRef = React.useRef();
-  const nimRef = React.useRef();
-  const kelompokRef = React.useRef();
+  const umurRef = React.useRef();
+  const angkatanRef = React.useRef();
 
   function handleCheck() {
     if (state.nama === "") {
       alert("Nama harus diisi");
       namaRef.current.focus();
-    } else if (state.nim === "") {
-      alert("Nim harus diisi");
-      nimRef.current.focus();
-    } else if (state.kelompok === "") {
-      alert("Kelompok harus diisi");
-      kelompokRef.current.focus();
+    } else if (state.umur === "") {
+      alert("Umur harus diisi");
+      umurRef.current.focus();
+    } else if (state.angkatan === "") {
+      alert("Angkatan harus diisi");
+      angkatanRef.current.focus();
     } else {
       setState({
         ...state,
         ["nama"]: "",
-        ["nim"]: "",
-        ["kelompok"]: "",
+        ["umur"]: "",
+        ["angkatan"]: "",
       });
       alert("Semua Telah Terisi!");
     }
@@ -53,22 +53,22 @@ function NewHook() {
       <input
         type="text"
         style={{ width: 300 }}
-        ref={nimRef}
-        value={state.nim}
-        placeholder="Nim"
+        ref={umurRef}
+        value={state.umur}
+        placeholder="Umur"
         onChange={(value) =>
-          setState({ ...state, ["nim"]: value.target.value })
+          setState({ ...state, ["umur"]: value.target.value })
         }
       />
       <br />
       <input
         type="text"
         style={{ width: 300 }}
-        ref={kelompokRef}
-        value={state.kelompok}
-        placeholder="Kelompok"
+        ref={angkatanRef}
+        value={state.angkatan}
+        placeholder="Angkatan"
         onChange={(value) =>
-          setState({ ...state, ["kelompok"]: value.target.value })
+          setState({ ...state, ["angkatan"]: value.target.value })
         }
       />
       <br />
