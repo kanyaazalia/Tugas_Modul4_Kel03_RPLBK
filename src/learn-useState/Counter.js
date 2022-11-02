@@ -7,7 +7,7 @@ export default function Counter(){
     const [count, setCount] = useState(0);
     const[text, setText]= useState("Ini default Textnya");
     const[fontSize, setFontSize]=useState(16)
-    const [color, setColor]= useState('black')
+    const [color, setColor]= useState('cyan')
     const countUp = () => {
         setCount(count +1); 
     };
