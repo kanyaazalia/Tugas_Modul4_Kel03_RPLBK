@@ -1,5 +1,4 @@
 import React, {useState,useContext} from "react";
-import { useEmitter } from "./Emitter";
 import "./index.css";
 
 const themes ={
@@ -19,14 +18,14 @@ const ThemeContext = React.createContext(themes.light);
 
 export default function Index(){
     const [theme,setTheme] = useState(themes.dark);
-    const setDataEvent = useEmitter();
+
     const changeTheme = () => {
         if (theme.id === themes.light.id) {
             setTheme(themes.dark);
-            setDataEvent("gelap");
+
         } else {
             setTheme(themes.light);
-            setDataEvent("terang");
+ 
         }
     };
     return(

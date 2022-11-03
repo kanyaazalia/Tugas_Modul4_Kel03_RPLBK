@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { useEmitter } from "../learn-useContext/Emitter";
+import React, {useState, useContext} from "react";
+import { EmitterContext } from "../learn-useContext/Emitter";
 import logo from "../logo.svg";
 import "./Counter.css";
 
@@ -9,9 +9,7 @@ export default function Counter(){
     const[text, setText]= useState("Ini default Textnya");
     const[fontSize, setFontSize]=useState(16)
     const [color, setColor]= useState('cyan')
-
-    const{data} = useEmitter();
-
+    const manusia = useContext(EmitterContext)
     const countUp = () => {
         setCount(count +1); 
     };
@@ -29,15 +27,18 @@ return (
     <div className="Main">
         <p className="Text">Learn with useState</p>
         <p>KELOMPOK 03</p>
-        <p>ini pakek warna</p>
-        <p className="Text">{data}</p>
-       
+                    <p>
+                        Nama: {manusia.Nama}
+                        <br />
+                        Tugas: {manusia.Tugas}
+                        <br />
+                    </p>
         <h3 style={{//{}ini tandanya objek
           fontSize: fontSize+'px',
           color:color, //ada color disini
         }}>{text}</h3>
 
-        <input type="text" placeholder={data}
+        <input type="text" placeholder="aaaaaaaaaaaa"
         onChange={(e)=>{
           setText(e.target.value);
         }} />

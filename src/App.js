@@ -24,7 +24,7 @@ function App() {
               <Link to="/context">Use Context</Link>
             </li>
             <li className="li">
-              <Link to="/tugas">Use Gatau</Link>
+              <Link to="/tugas">Use Ref</Link>
             </li>
           </ul>
         </nav>
